@@ -117,15 +117,17 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbw6cAhSoSs79f8PDS0KJQj_iIKk0_50bAhIFq_S2Plm-UJRm_06-HWMl-bHze7khOsM/exec',
+					url : 'https://script.google.com/macros/s/AKfycbz9Zi4riShCL66oba2SITn_b3rl4Gh_jMIA8cXFVSG9UzRqGkoZV4qFQBPbJzZL2Qrd/exec',
 					request : () => {
 						$('#f3hSpinner').show();
-						const request = $('#f3hApp').data();
-console.log(JSON.stringify(request));
-/*						const data = {
-							action : 'lead',
-						}; */
-						$.post(F3HEngine.api.url, request, function(response) { $('#f3hApp').html(response); $('#f3hSpinner').hide(); });
+						const payload = $('#f3hApp').data();
+console.log(JSON.stringify(payload));
+
+fetch(F3HEngine.api.url, { method: 'post', mode: 'cors', body: JSON.stringify(payload) })
+	.then( function (res) { try { return res.json() } catch(err) { console.log('Error: ' + err.message) } })
+	.then( function (json) { $('#f3hApp').html(json.html); $('#f3hSpinner').hide(); });
+
+//						$.post(F3HEngine.api.url, request, function(response) { $('#f3hApp').html(response); $('#f3hSpinner').hide(); });
 
 					}
 				},
