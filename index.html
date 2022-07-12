@@ -121,6 +121,7 @@
 					request : () => {
 						$('#f3hSpinner').show();
 						const request = $('#f3hApp').data();
+console.log(JSON.stringify(request));
 /*						const data = {
 							action : 'lead',
 						}; */
@@ -198,7 +199,7 @@
 					}
 				},
 				init : () => {
-//					F3HEngine.uid = F3HEngine.inits.uid();
+					F3HEngine.uid = 'test user'; //F3HEngine.inits.uid();
 					F3HEngine.app.setData('userID', F3HEngine.inits.uid());
 //					F3HEngine.loader = F3HEngine.inits.loader();
 				},
