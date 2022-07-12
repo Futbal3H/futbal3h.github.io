@@ -199,8 +199,9 @@ console.log(JSON.stringify(request));
 					}
 				},
 				init : () => {
-					F3HEngine.uid = 'test user'; //F3HEngine.inits.uid();
-					F3HEngine.app.setData('userID', F3HEngine.inits.uid());
+//					F3HEngine.uid = F3HEngine.inits.uid();
+//					F3HEngine.app.setData('userID', F3HEngine.inits.uid());
+					F3HEngine.app.setData('userID', 'test user');
 //					F3HEngine.loader = F3HEngine.inits.loader();
 				},
 				ui : {
