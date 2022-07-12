@@ -148,7 +148,6 @@
 				},
 				uid : '',
 				loader : {},
-				contractor : {},
 				inits : {
 					uid : () => {
 						const idKey = 'userID';
@@ -157,8 +156,6 @@
 /*						if (idKey in store) {
 							return store[idKey];
 						} else {
-							const uid = Math.ceil((Date.now() - Date.parse('01 Jan 2022 00:00:00 GMT'))/100).toString(36);
-							store[idKey] = uid;
 							window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
 							return uid;
 						} */
@@ -171,42 +168,7 @@
 						const initCmd = (inputKeys.length > 1 && inputVals[1] == '') ? inputKeys[1] : '';
 
 						if (initIDs == 'ls-reset') { window.localStorage.clear(); return; }
-						const parser = function(data, type) {
-							if (data.length < 4 || data[0] != type) return false;
-							const pars = data.slice(1).split('@');
-							if (pars.length == 1) {
-								if (pars[0].length == 3) {
-									loader.contractor = pars[0];
-								} else {
-									loader.referrer = pars[0];
-								}
-							} else {
-								loader.contractor = pars[0];
-								loader.referrer = pars[1];
-							}
-							return true;
-						};
-						const conKey = 'contractor';
-						const refKey = 'referrer';
-						const funKey = 'funnel';
-						var store  = F3HEngine.localStorage(F3HEngine.k.storeID);
-						var loader = { contractor : '', referrer : '', command : initCmd, funnel : inputs.has('fun') ? inputs.get('fun') : ''};
-						if (conKey in store) {
-							loader.contractor = store[conKey];
-							if (refKey in store) loader.referrer = store[refKey];
-						} else {
-							if (parser(`?${initIDs}`, '?') === false) {
-								if (parser(window.location.hash.split('?')[0], '#') === false) { }
-							}
-						}
-						store[conKey] = loader.contractor;
-						store[refKey] = loader.referrer;
-						store[funKey] = loader.funnel;
-						window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
 						return loader;
-					},
-					contractor : () => {
-						// `${F3HEngine.api.url}?action=con&id=${F3HEngine.loader.contractor}`
 					},
 					handlers : () => {
 						$('input[data-lfo-chars]').on('keypress', F3HEngine.utilities.input.filter);
@@ -230,7 +192,6 @@
 								const type = $(form).attr('data-fv-contact-type');
 								const dialogs = $(this).closest('.fvDialog');
 								const dialog = (dialogs.length > 0) ? `#${$(dialogs[0]).attr('id')}` : '';
-								F3HEngine.api.lead(type, data, dialog);
 							};
 							form.classList.add('was-validated');
 						});
@@ -261,7 +222,6 @@
 			F3HEngine.init();
 			$(function() {
 				F3HEngine.api.request();
-//				F3HEngine.inits.contractor();
 //				F3HEngine.inits.handlers();
 			});
 		</script>
