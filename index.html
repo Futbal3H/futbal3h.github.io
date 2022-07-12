@@ -18,25 +18,25 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 		<!--  PWA  -->
 		<link rel="manifest" href="/manifest.webmanifest">
-		<meta name="application-name" content="Sun Pixel">
-		<link rel="icon" sizes="192x192" href="/media/app/sunpixel-app-icon-192.png">
+		<meta name="application-name" content="Futbal 3H">
+		<link rel="icon" sizes="192x192" href="/media/app/futbal3h-app-icon-192.png">
 		<meta name="theme-color" content="#d89838">
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="white">
-		<meta name="apple-mobile-web-app-title" content="Sun Pixel">
-		<link rel="apple-touch-icon" href="/media/app/sunpixel-app-icon-180.png">
-		<link rel="apple-touch-startup-image" href="/media/app/sunpixel-launch-1242x2688.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="/media/app/sunpixel-launch-1242x2688.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/sunpixel-launch-828x1792.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="/media/app/sunpixel-launch-1125x2436.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" href="/media/app/sunpixel-launch-1242x2208.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/sunpixel-launch-750x1334.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/sunpixel-launch-2048x2732.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/sunpixel-launch-1668x2388.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/sunpixel-launch-1668x2224.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/sunpixel-launch-1536x2048.png">
-		<meta name="msapplication-TileImage" content="/media/app/sunpixel-app-icon-144.png">
+		<meta name="apple-mobile-web-app-title" content="Futbal 3H">
+		<link rel="apple-touch-icon" href="/media/app/futbal3h-app-icon-180.png">
+		<link rel="apple-touch-startup-image" href="/media/app/futbal3h-launch-1242x2688.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="/media/app/futbal3h-launch-1242x2688.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/futbal3h-launch-828x1792.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="/media/app/futbal3h-launch-1125x2436.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" href="/media/app/futbal3h-launch-1242x2208.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/futbal3h-launch-750x1334.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/futbal3h-launch-2048x2732.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/futbal3h-launch-1668x2388.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/futbal3h-launch-1668x2224.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/futbal3h-launch-1536x2048.png">
+		<meta name="msapplication-TileImage" content="/media/app/futbal3h-app-icon-144.png">
 		<meta name="msapplication-TileColor" content="#181818">
 	</head>
 	<body class="bg-white text-black link-primary" data-bs-spy="scroll" data-bs-target="#fvNavBar" data-bs-offset="89" tabindex="0">
@@ -83,8 +83,22 @@
 				</div>
 			</nav>
 		</header>
-		<main>
+		<main class="position-relative">
+			<!--  App  -->
+			<div id="f3hApp"></div>
+			<!--  Progress Spinner  -->
+			<div id="f3hSpinner" class="fade show position-fixed top-0 start-0 bottom-0 end-0" style="display:none;z-index:32767">
+				<div class="vstack gap-4 position-absolute top-50 start-50 translate-middle bg-dark bg-opacity-75 p-5 rounded-3 shadow">
+					<div class="d-flex justify-content-center">
+						<div class="spinner-border text-white" role="status" style="width:100px;height:100px">
+							<span class="visually-hidden">Počkaj, niečo robím...</span>
+						</div>
+					</div>
+					<div class="text-white fs-4 fw-semibold mx-5">Počkaj, niečo robím...</div>
+				</div>
+			</div>
 
+			<iframe id="f3hAppFrame" src="#" width="100%" height="100%"></iframe>
 		</main>
 		<footer class="container-fluid bg-dark text-light">
 			<div class="container g-0 pt-3 pb-2 pt-md-4 pb-md-3">
@@ -98,47 +112,26 @@
 		</div>
 		</footer>
 		<script type="text/javascript">
-			var FVEngine = {
+			var F3HEngine = {
 				k : {
-					storeID : 'dev.FotoVolt.userData',
-					locationID : 'dev.FotoVolt.userLocation',
+					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbxqo6H7NR-J2DsIXWeU_eVeBZF6u8ldYBezHs_-i97gHhvzfi0E87bpI0Mu7zIEjoc/exec',
-					lead : (type, data, dialogID) => {
-						$('#fvSpinner').show();
-						FVEngine.api.rec(type, data, function(result) {
-							$('#fvSpinner').hide();
-							$('#fvFormResultDialog').modal({}); $('#fvFormResultDialog').modal('show');
-							const tab = `fvFormResultContent${(result.code == 0) ? 'Ok' : 'Err'}-page`;
-							$(`#fvFormResultContent-tabs a[href="#${tab}"]`).tab('show');
-							if (result.code == 0 && dialogID != '') $(dialogID).modal('hide');
-						});
-					},
-					hit : (media) => { FVEngine.api.rec(media, '', function(result) { }); },
-					rec : (media, contact, callback) => {
-						const loc = FVEngine.location();
-						const data = {
+					url : 'https://script.google.com/macros/s/AKfycbw0Ksu8yPcE2YYzULLIXABL0pUEBsuBpVqqGgerT4eFhKPP2sN4Wko09giRsbq-Lxfc/exec',
+					request : () => {
+						$('#f3hSpinner').show();
+						const request = $('#f3hApp').data();
+/*						const data = {
 							action : 'lead',
-							con : FVEngine.contractor.id,
-							ref : FVEngine.contractor.refID,
-							uid : FVEngine.uid,
-							aff : FVEngine.loader.referrer,
-							fun : FVEngine.loader.funnel,
-							media : media,
-							email : (media == 'email') ? contact : '',
-							phone : (media == 'phone') ? contact : '',
-							cit : loc.city,
-							reg : loc.region,
-							zip : loc.postal_code,
-							cty : loc.country_code,
-							lat : loc.latitude,
-							lon : loc.longitude
-						};
-						$.post(FVEngine.api.url, data, function(data) { callback(data); });
+						}; */
+						$.post(F3HEngine.api.url, request, function(response) { $('#f3hApp').html(response); $('#f3hSpinner').hide(); });
+
 					}
 				},
-				localStorage : (sid='dev.FotoVolt.userData') => {
+				app : {
+					setData : (key, val) => { $('#f3hApp').data(key, val); }
+				},
+				localStorage : (sid='io.github.futbal3h.userData') => {
 					var items = {};
 					const data = window.localStorage.getItem(sid);
 					if (data) {
@@ -153,36 +146,22 @@
 					}
 					return items;
 				},
-				location : () => {
-					const ipService = 'geoiplookup.io';
-					var store = FVEngine.localStorage(FVEngine.k.locationID);
-					if (ipService in store) {
-						return store[ipService];
-					} else {
-						$.getJSON('https://json.geoiplookup.io/', function(ipData) { 
-							if (ipData && 'success' in ipData && ipData.success == true) {
-								store[ipService] = ipData;
-								window.localStorage.setItem(FVEngine.k.locationID, JSON.stringify(store));
-								return ipData;
-							}
-						});
-					}
-				},
 				uid : '',
 				loader : {},
 				contractor : {},
 				inits : {
 					uid : () => {
 						const idKey = 'userID';
-						var store = FVEngine.localStorage(FVEngine.k.storeID);
-						if (idKey in store) {
+						var store = F3HEngine.localStorage(F3HEngine.k.storeID);
+						return (idKey in store) ? store[idKey] : '';
+/*						if (idKey in store) {
 							return store[idKey];
 						} else {
 							const uid = Math.ceil((Date.now() - Date.parse('01 Jan 2022 00:00:00 GMT'))/100).toString(36);
 							store[idKey] = uid;
-							window.localStorage.setItem(FVEngine.k.storeID, JSON.stringify(store));
+							window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
 							return uid;
-						}
+						} */
 					},
 					loader : () => {
 						const inputs = new URLSearchParams(window.location.search);
@@ -210,7 +189,7 @@
 						const conKey = 'contractor';
 						const refKey = 'referrer';
 						const funKey = 'funnel';
-						var store  = FVEngine.localStorage(FVEngine.k.storeID);
+						var store  = F3HEngine.localStorage(F3HEngine.k.storeID);
 						var loader = { contractor : '', referrer : '', command : initCmd, funnel : inputs.has('fun') ? inputs.get('fun') : ''};
 						if (conKey in store) {
 							loader.contractor = store[conKey];
@@ -223,62 +202,22 @@
 						store[conKey] = loader.contractor;
 						store[refKey] = loader.referrer;
 						store[funKey] = loader.funnel;
-						window.localStorage.setItem(FVEngine.k.storeID, JSON.stringify(store));
+						window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
 						return loader;
 					},
 					contractor : () => {
-						$.getJSON(`${FVEngine.api.url}?action=con&id=${FVEngine.loader.contractor}`, function(data) {
-							const contractor = data.contractor;
-							FVEngine.contractor = contractor;
-							const sanPhone = contractor.phone.replace(/\s*/g, '');
-							const urlCall = () => { return `tel:${sanPhone}`;};
-							const urlSMS = () => { return `sms:${sanPhone}?body=FotoVolt `;};
-							const urlWhatsApp = () => { return `https://wa.me/${sanPhone.slice(1)}?text=FotoVolt - záujem (referencia: ${FVEngine.uid}):%0D`;};
-							const urlEmail = () => { return `mailto:${contractor.email}?subject=FotoVolt - záujem (referencia: ${FVEngine.uid})&body=`;};
-							const urlGmail = () => { return `https://mail.google.com/mail/?view=cm&fs=1&to=${contractor.email}&su=FotoVolt - záujem (referencia: ${FVEngine.uid})&body=`;};
-							$('#contractorID').html(contractor.id);
-							$('#contractorName').html(`${contractor.nameFirst} ${contractor.nameLast[0]}.`);
-							$('.fvContractorPhoneValue').html(contractor.phone);
-							$('#fvCallURL').attr('href', urlCall());
-							$('#fvSmsURL').attr('href', urlSMS());
-							$('#fvWhatsUpURL').attr('href', urlWhatsApp());
-							$('.fvContractorEmailValue').html(contractor.email);
-							$('#fvEmailURL').attr('href', urlEmail());
-							$('#fvGmailURL').attr('href', urlGmail());
-							$('.fvContractorMessengerValue').html(`https://m.me/${contractor.messenger}`);
-							$('.fvMessengerURL').attr('href', `https://m.me/${contractor.messenger}`);
-							if (contractor.messenger.length == 0) $('.fvMessengerItem').addClass('d-none');
-							if (contractor.affilOn == 1) $('.fvAffilItem').removeClass('d-none');
-							$('.fvLogo').attr('src', `/media/fotovolt-solar-logo-${contractor.id}.png`);
-							$('#contractorPhoto').attr('src', `/media/${contractor.id}.jpg`);
-							switch (FVEngine.loader.command) {
-								case 'phone':
-									FVEngine.ui.showContactDialog('phone'); break;
-								case 'email':
-									FVEngine.ui.showContactDialog('email'); break;
-								case 'call':
-									FVEngine.api.hit('call'); FVEngine.utilities.connectRedirect(urlCall()); break;
-								case 'sms':
-									FVEngine.api.hit('sms'); FVEngine.utilities.connectRedirect(urlSMS()); break;
-								case 'whatsapp':
-									FVEngine.api.hit('whatsup'); FVEngine.utilities.connectRedirect(urlWhatsApp()); break;
-								case 'emailapp':
-									FVEngine.api.hit('emailapp'); FVEngine.utilities.connectRedirect(urlEmail()); break;
-								case 'gmail':
-									FVEngine.api.hit('gmail'); FVEngine.utilities.connectRedirect(urlGmail()); break;
-							}
-						});
+						// `${F3HEngine.api.url}?action=con&id=${F3HEngine.loader.contractor}`
 					},
 					handlers : () => {
-						$('input[data-lfo-chars]').on('keypress', FVEngine.utilities.input.filter);
-						$('.fvContractorPhone').click(function() { FVEngine.ui.showContactDialog('phone'); });
-						$('#fvCallURL').click(function() { FVEngine.api.hit('call'); return true; });
-						$('#fvSmsURL').click(function() { FVEngine.api.hit('sms'); return true; });
-						$('#fvWhatsUpURL').click(function() { FVEngine.api.hit('whatsup'); return true; });
-						$('.fvContractorEmail').click(function() { FVEngine.ui.showContactDialog('email'); });
-						$('#fvEmailURL').click(function() { FVEngine.api.hit('emailapp'); return true; });
-						$('#fvGmailURL').click(function() { FVEngine.api.hit('gmail'); return true; });
-						$('.fvMessengerURL').click(function() { FVEngine.api.hit('messenger'); return true; });
+						$('input[data-lfo-chars]').on('keypress', F3HEngine.utilities.input.filter);
+						$('.fvContractorPhone').click(function() { F3HEngine.ui.showContactDialog('phone'); });
+						$('#fvCallURL').click(function() { F3HEngine.api.hit('call'); return true; });
+						$('#fvSmsURL').click(function() { F3HEngine.api.hit('sms'); return true; });
+						$('#fvWhatsUpURL').click(function() { F3HEngine.api.hit('whatsup'); return true; });
+						$('.fvContractorEmail').click(function() { F3HEngine.ui.showContactDialog('email'); });
+						$('#fvEmailURL').click(function() { F3HEngine.api.hit('emailapp'); return true; });
+						$('#fvGmailURL').click(function() { F3HEngine.api.hit('gmail'); return true; });
+						$('.fvMessengerURL').click(function() { F3HEngine.api.hit('messenger'); return true; });
 						$('.fvBonusInfoButton').click(function() { $('#fvBonusInfoDialog').modal({}); $('#fvBonusInfoDialog').modal('show'); });
 						$('.fvContactFormButton').click(function() {
 							const form = $(this).closest('form')[0];
@@ -291,16 +230,16 @@
 								const type = $(form).attr('data-fv-contact-type');
 								const dialogs = $(this).closest('.fvDialog');
 								const dialog = (dialogs.length > 0) ? `#${$(dialogs[0]).attr('id')}` : '';
-								FVEngine.api.lead(type, data, dialog);
+								F3HEngine.api.lead(type, data, dialog);
 							};
 							form.classList.add('was-validated');
 						});
 					}
 				},
 				init : () => {
-					FVEngine.location();
-					FVEngine.uid = FVEngine.inits.uid();
-					FVEngine.loader = FVEngine.inits.loader();
+//					F3HEngine.uid = F3HEngine.inits.uid();
+					F3HEngine.app.setData('userID', F3HEngine.inits.uid());
+//					F3HEngine.loader = F3HEngine.inits.loader();
 				},
 				ui : {
 					showContactDialog : (type='phone') => {
@@ -319,10 +258,11 @@
 					}
 				}
 			};
-			FVEngine.init();
+			F3HEngine.init();
 			$(function() {
-				FVEngine.inits.contractor();
-				FVEngine.inits.handlers();
+				F3HEngine.api.request();
+//				F3HEngine.inits.contractor();
+//				F3HEngine.inits.handlers();
 			});
 		</script>
 
