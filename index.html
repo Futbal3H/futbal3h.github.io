@@ -118,7 +118,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbyPLdYszRxYrBvlwLu3cZ2ytX3JNI8OUH1QKwKhBwOKHBf5v8bz8_MOaid5lUMBBSwY/exec',
+					url : 'https://script.google.com/macros/s/AKfycbws6KdelIVWmTHqBwsFj8dO36lsgjzY0kDUlihQV2XErEYj9mnXTvkUhxeosL7G8hWR/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
@@ -202,7 +202,6 @@ console.log(JSON.stringify(payload));
 				init : () => {
 //					F3HEngine.uid = F3HEngine.inits.uid();
 					F3HEngine.app.setData( { userID : F3HEngine.inits.uid() } );
-//					F3HEngine.app.setData('userID', 'test user');
 					F3HEngine.loader = F3HEngine.inits.loader();
 				},
 				ui : {
