@@ -171,7 +171,12 @@ fetch(F3HEngine.api.url, { method: 'post', mode: 'cors', body: JSON.stringify(pa
 						return loader;
 					},
 					handlers : () => {
-						$('#input.userID').change(function() { var store = F3HEngine.localStorage(F3HEngine.k.storeID); store['userID'] = $(this).val(); window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store)); });
+						$('#input.userID').change(function() {
+							var store = F3HEngine.localStorage(F3HEngine.k.storeID);
+							store['userID'] = $(this).val();
+							window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
+							F3HEngine.app.setData('userID', F3HEngine.inits.uid());
+						});
 
 /*						$('input[data-lfo-chars]').on('keypress', F3HEngine.utilities.input.filter);
 						$('.fvContractorPhone').click(function() { F3HEngine.ui.showContactDialog('phone'); });
@@ -224,8 +229,8 @@ fetch(F3HEngine.api.url, { method: 'post', mode: 'cors', body: JSON.stringify(pa
 			};
 			F3HEngine.init();
 			$(function() {
-				F3HEngine.api.request();
 				F3HEngine.inits.handlers();
+				F3HEngine.api.request();
 			});
 		</script>
 
