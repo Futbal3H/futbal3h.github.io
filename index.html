@@ -114,7 +114,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbwHqJuuPAK0HUIlhwjHGAUqEHc2jjIrf9f8L67OiF_tx4DR08OQOn1W2c9USQwIbPdq/exec',
+					url : 'https://script.google.com/macros/s/AKfycbxd8A8VUI7OZKvJBh1Ll4Or3XPVxkM1O9jp8WpK4Kc9d6Y2kiZF8rLjcp73X773xZHg/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
@@ -171,11 +171,10 @@ fetch(F3HEngine.api.url, { method: 'post', mode: 'cors', body: JSON.stringify(pa
 						return loader;
 					},
 					handlers : () => {
-console.log('installing handlers');
-						$(document).on('click', '#input.userID.submit', function() {
+						$(document).on('click', '#input-userID-submit', function() {
 console.log(`userID input: ${$('#input.userID').val()}`);
 							var store = F3HEngine.localStorage(F3HEngine.k.storeID);
-							store['userID'] = $('#input.userID').val();
+							store['userID'] = $('#input-userID').val();
 							window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
 							F3HEngine.app.setData('userID', F3HEngine.inits.uid());
 						});
