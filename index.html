@@ -168,7 +168,6 @@ fetch(F3HEngine.api.url, { method: 'post', mode: 'cors', body: JSON.stringify(pa
 						const initCmd = (inputKeys.length > 1 && inputVals[1] == '') ? inputKeys[1] : '';
 
 						if (initIDs == 'ls-reset') { window.localStorage.clear(); return; }
-						return loader;
 					},
 					handlers : () => {
 						$(document).on('click', '#input-userID-submit', function() {
