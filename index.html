@@ -172,6 +172,7 @@ fetch(F3HEngine.api.url, { method: 'post', mode: 'cors', body: JSON.stringify(pa
 					},
 					handlers : () => {
 						$('#input.userID').change(function() {
+console.log(`userID input: ${$(this).val()}`);
 							var store = F3HEngine.localStorage(F3HEngine.k.storeID);
 							store['userID'] = $(this).val();
 							window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
