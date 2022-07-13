@@ -129,7 +129,7 @@ console.log(JSON.stringify(payload));
 					}
 				},
 				app : {
-					setData : (key, val) => { $('#f3hApp').data(key, val); }
+					setData : (obj) => { Object.keys(obj).forEach((key) => { $('#f3hApp').data(key, obj[key]); }); }
 				},
 				localStorage : (sid='io.github.futbal3h.userData') => {
 					var items = {};
@@ -168,10 +168,10 @@ console.log(JSON.stringify(payload));
 							var store = F3HEngine.localStorage(F3HEngine.k.storeID);
 							store['userID'] = $('#input-userID').val();
 							window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
-							F3HEngine.app.setData('userID', F3HEngine.inits.uid());
+							F3HEngine.app.setData( { userID : F3HEngine.inits.uid() } );
 							F3HEngine.api.request();
 						});
-						$(document).on('click', '[data-f3h-screen]', function() { F3HEngine.app.setData('screen', $(this).data('f3h-screen')); F3HEngine.api.request(); });
+						$(document).on('click', '[data-f3h-screen]', function() { F3HEngine.app.setData($(this).data()); F3HEngine.api.request(); });
 
 /*						$('input[data-lfo-chars]').on('keypress', F3HEngine.utilities.input.filter);
 						$('.fvContractorPhone').click(function() { F3HEngine.ui.showContactDialog('phone'); });
@@ -201,7 +201,7 @@ console.log(JSON.stringify(payload));
 				},
 				init : () => {
 //					F3HEngine.uid = F3HEngine.inits.uid();
-					F3HEngine.app.setData('userID', F3HEngine.inits.uid());
+					F3HEngine.app.setData( { userID : F3HEngine.inits.uid() } );
 //					F3HEngine.app.setData('userID', 'test user');
 					F3HEngine.loader = F3HEngine.inits.loader();
 				},
