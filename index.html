@@ -50,10 +50,10 @@
 			<div class="vstack gap-4 position-absolute top-50 start-50 translate-middle bg-dark bg-opacity-75 p-5 rounded-3 shadow">
 				<div class="d-flex justify-content-center">
 					<div class="spinner-border text-white" role="status" style="width:100px;height:100px">
-						<span class="visually-hidden">Vytrim, loudujem dačo...</span>
+						<span class="visually-hidden">Loading...</span>
 					</div>
 				</div>
-				<div class="text-white fs-4 fw-semibold mx-5">Vytrim, loudujem dačo...</div>
+				<div class="text-white fs-4 fw-semibold mx-5">Loading...</div>
 			</div>
 		</div>
 		<script type="text/javascript">
@@ -62,7 +62,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbzehBx9e_QNONbEQSfJVemRCgGXSRtTqHeoC7XszRFzz3dkHJ0mKCsyKewtofFCu57H/exec',
+					url : 'https://script.google.com/macros/s/AKfycbzADdESrbpXHaeNbcYq7KKLzSolWYT7BWnvc_xgPKguJyvPQbDwGqrmr8BfnDKAn6BT/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
