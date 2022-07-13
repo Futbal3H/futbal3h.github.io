@@ -44,81 +44,26 @@
 		<meta name="msapplication-TileColor" content="#181818">
 	</head>
 	<body class="full-window-height bg-white text-black link-primary" _data-bs-spy="scroll" data-bs-target="#fvNavBar" data-bs-offset="89" tabindex="0">
-		<header style="height:89px;max-height:89px">
-			<nav id="fvNavBar" class="container-fluid navbar navbar-expand-lg fixed-top navbar-light bg-white">
-				<div class="container g-0">
-					<a class="navbar-brand hstack gap-3 me-4" href="/">
-						<img class="rounded-3" src="/media/futbal-3h-logo-full.jpg" alt="Futbal 3H logo" height="63">
-					</a>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#fvNavBarCollapse" aria-controls="fvNavBarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="fvNavBarCollapse">
-						<div class="d-flex flex-wrap align-items-center w-100">
-							<div>
-								<ul class="nav nav-pills">
-									<li class="nav-item">
-										<button data-f3h-screen="home" class="btn btn-link">Domov</button>
-									</li>
-									<li class="nav-item">
-										<button data-f3h-screen="players" class="btn btn-link">Hráči</button>
-									</li>
-									<li class="nav-item">
-										<button data-f3h-screen="matches" class="btn btn-link">Zápasy</button>
-									</li>
-									<li class="nav-item">
-										<button data-f3h-screen="stats" class="btn btn-link">Štatistiky</button>
-									</li>
-								</ul>
-							</div>
-							<div class="hstack gap-1 ps-4 ms-auto my-2">
-								<div role="button" class="d-flex align-items-center">
-									<img class="fvContractorPhone" src="/media/svg/solid/phone-rotary.svg" width="32" height="32" alt="Kontakt - telefón" />
-								</div>
-								<div role="button" class="d-flex align-items-center ms-3">
-									<img class="fvContractorEmail" src="/media/svg/solid/envelope.svg" width="32" height="32" alt="Kontakt - e-mail" />
-								</div>
-								<div role="button" class="d-flex align-items-center ms-3 fvMessengerItem">
-									<a href="#" title="Kontakt cez Messenger" class="fvMessengerURL" target="_blank" rel="external noopener"><img src="/media/svg/brands/facebook-messenger.svg" width="32" height="32" alt="Kontakt - messenger" /></a>
-								</div>
-							</div>
-						</div>
+		<div id="f3hApp" class="position-relative"></div>
+		<!--  Progress Spinner  -->
+		<div id="f3hSpinner" class="fade show position-fixed top-0 start-0 bottom-0 end-0" style="display:none;z-index:32767">
+			<div class="vstack gap-4 position-absolute top-50 start-50 translate-middle bg-dark bg-opacity-75 p-5 rounded-3 shadow">
+				<div class="d-flex justify-content-center">
+					<div class="spinner-border text-white" role="status" style="width:100px;height:100px">
+						<span class="visually-hidden">Vytrim, loudujem dačo...</span>
 					</div>
 				</div>
-			</nav>
-		</header>
-		<main class="container position-relative">
-			<!--  App  -->
-			<div id="f3hApp"></div>
-			<!--  Progress Spinner  -->
-			<div id="f3hSpinner" class="fade show position-fixed top-0 start-0 bottom-0 end-0" style="display:none;z-index:32767">
-				<div class="vstack gap-4 position-absolute top-50 start-50 translate-middle bg-dark bg-opacity-75 p-5 rounded-3 shadow">
-					<div class="d-flex justify-content-center">
-						<div class="spinner-border text-white" role="status" style="width:100px;height:100px">
-							<span class="visually-hidden">Vytrim, loudujem dačo...</span>
-						</div>
-					</div>
-					<div class="text-white fs-4 fw-semibold mx-5">Vytrim, loudujem dačo...</div>
-				</div>
+				<div class="text-white fs-4 fw-semibold mx-5">Vytrim, loudujem dačo...</div>
 			</div>
-		</main>
-		<footer class="container-fluid bg-dark text-light">
-			<div class="container g-0 pt-3 pb-2 pt-md-4 pb-md-3">
-				<div class="d-flex flex-wrap justify-content-center justify-content-md-between">
-					<div class="mb-3">
-					</div>
-					<div class="mb-3 d-none fvAffilItem">
-					</div>
-				</div>
-			</div>
-		</footer>
+		</div>
+
 		<script type="text/javascript">
 			var F3HEngine = {
 				k : {
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbyjRM3YPhJWn2AWXlcajrGS5W-VQlgtksVQ03JFqllQiPRuP0xLHFwssID04pXHBjh8/exec',
+					url : 'https://script.google.com/macros/s/AKfycbzfZRi2tKI0ds1Er3BlBAVQhAZ6RFJiqn4XBqGld5cXNdyDI30-xz6MR5kZItny3rHD/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
