@@ -172,11 +172,11 @@ fetch(F3HEngine.api.url, { method: 'post', mode: 'cors', body: JSON.stringify(pa
 					},
 					handlers : () => {
 						$(document).on('click', '#input-userID-submit', function() {
-console.log(`userID input: ${$('#input-userID').val()}`);
 							var store = F3HEngine.localStorage(F3HEngine.k.storeID);
 							store['userID'] = $('#input-userID').val();
 							window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
 							F3HEngine.app.setData('userID', F3HEngine.inits.uid());
+							F3HEngine.api.request();
 						});
 
 /*						$('input[data-lfo-chars]').on('keypress', F3HEngine.utilities.input.filter);
@@ -209,7 +209,7 @@ console.log(`userID input: ${$('#input-userID').val()}`);
 //					F3HEngine.uid = F3HEngine.inits.uid();
 					F3HEngine.app.setData('userID', F3HEngine.inits.uid());
 //					F3HEngine.app.setData('userID', 'test user');
-//					F3HEngine.loader = F3HEngine.inits.loader();
+					F3HEngine.loader = F3HEngine.inits.loader();
 				},
 				ui : {
 					showContactDialog : (type='phone') => {
