@@ -48,7 +48,7 @@
 			<nav id="fvNavBar" class="container-fluid navbar navbar-expand-lg fixed-top navbar-light bg-white">
 				<div class="container g-0">
 					<a class="navbar-brand hstack gap-3 me-4" href="/">
-						<img class="fvLogo" src="/media/futbal-3h-logo-full.jpg" alt="Futbal 3H logo" height="63">
+						<img class="rounded-3" src="/media/futbal-3h-logo-full.jpg" alt="Futbal 3H logo" height="63">
 					</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#fvNavBarCollapse" aria-controls="fvNavBarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -58,16 +58,16 @@
 							<div>
 								<ul class="nav nav-pills">
 									<li class="nav-item">
-										<a class="nav-link text-center lh-sm" href="#o-nas" title="Kto sme - dodávateľ solárnych riešení">Domov</a>
+										<button data-f3h-screen="home" class="btn btn-link">Domov</button>
 									</li>
-									<li class="nav-item text-center lh-sm">
-										<a class="nav-link" href="#fotovoltika" title="Čo ponúkame - fotovoltiku na kľúč">Hráči</a>
+									<li class="nav-item">
+										<button data-f3h-screen="players" class="btn btn-link">Hráči</button>
 									</li>
-									<li class="nav-item text-center lh-sm">
-										<a class="nav-link" href="#usetrite" title="Ušetrite za elektrinu aj z plyn">Zápasy</a>
+									<li class="nav-item">
+										<button data-f3h-screen="matches" class="btn btn-link">Zápasy</button>
 									</li>
-									<li class="nav-item text-center lh-sm">
-										<a class="nav-link" href="#kontakt" title="Kontakt - audit zadarmo">Štatistiky</a>
+									<li class="nav-item">
+										<button data-f3h-screen="stats" class="btn btn-link">Štatistiky</button>
 									</li>
 								</ul>
 							</div>
@@ -118,7 +118,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbyZ1FTC74exDYVQ7thkwYWqQ_PVH2APjWWSsnxMJBFaarBri3gNTg9Ho4SzRWVMC_fT/exec',
+					url : 'https://script.google.com/macros/s/AKfycbxdefr0WrboTR0ybBuo0sEKmm7DHXrkXTTZY_TFwspZK1HI_q929pgYO8-X5RrU_s0W/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
@@ -171,6 +171,7 @@ console.log(JSON.stringify(payload));
 							F3HEngine.app.setData('userID', F3HEngine.inits.uid());
 							F3HEngine.api.request();
 						});
+						$(document).on('click', '[data-f3h-screen]', function() { F3HEngine.app.setData('screen', $(this).data('f3h-screen')); F3HEngine.api.request(); });
 
 /*						$('input[data-lfo-chars]').on('keypress', F3HEngine.utilities.input.filter);
 						$('.fvContractorPhone').click(function() { F3HEngine.ui.showContactDialog('phone'); });
