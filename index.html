@@ -43,8 +43,8 @@
 		<meta name="msapplication-TileImage" content="/media/app/futbal3h-app-icon-144.png">
 		<meta name="msapplication-TileColor" content="#181818">
 	</head>
-	<body class="full-window-height bg-white text-black link-primary" _data-bs-spy="scroll" data-bs-target="#fvNavBar" data-bs-offset="89" tabindex="0">
-		<div id="f3hApp" class="position-relative"></div>
+	<body class="full-window-height position-relative bg-white text-black link-primary">
+		<div id="f3hApp"></div>
 		<!--  Progress Spinner  -->
 		<div id="f3hSpinner" class="fade show position-fixed top-0 start-0 bottom-0 end-0" style="display:none;z-index:32767">
 			<div class="vstack gap-4 position-absolute top-50 start-50 translate-middle bg-dark bg-opacity-75 p-5 rounded-3 shadow">
@@ -56,14 +56,13 @@
 				<div class="text-white fs-4 fw-semibold mx-5">Vytrim, loudujem dačo...</div>
 			</div>
 		</div>
-
 		<script type="text/javascript">
 			var F3HEngine = {
 				k : {
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbzfZRi2tKI0ds1Er3BlBAVQhAZ6RFJiqn4XBqGld5cXNdyDI30-xz6MR5kZItny3rHD/exec',
+					url : 'https://script.google.com/macros/s/AKfycbzehBx9e_QNONbEQSfJVemRCgGXSRtTqHeoC7XszRFzz3dkHJ0mKCsyKewtofFCu57H/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
@@ -172,7 +171,5 @@ console.log(JSON.stringify(payload));
 				F3HEngine.api.request();
 			});
 		</script>
-
-<!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BLV7bpeI1V32y1VRb8EGbyZAQauHsaSJpxVk0x3XwiE6kNjC0CXfkU-OjBPtiLN4An5Dvj5-P4HCACRerC8Uryw' });</script><!-- end webpushr code -->
 	</body>
 </html>
