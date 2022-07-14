@@ -64,7 +64,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbzrCE805kz70HcqQ4qzEeb5Fu7RO5reOk4boISoiHBm6Trs7gqYbRjYaXMa861O4anM/exec',
+					url : 'https://script.google.com/macros/s/AKfycbyQwz8UDfmVJOPN_9_qhxVvdFU4ryF-Xudy-uohKb2Dszeb0iYY5g2fMTbFhYTdgcRi/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
@@ -110,11 +110,11 @@ console.log(JSON.stringify(payload));
 						if (initIDs == 'ls-reset') { window.localStorage.clear(); return; }
 					},
 					handlers : () => {
-						$(document).on('click', '#input-userID-submit', function() {
+						$(document).on('click', '#f3hLogIn', function() {
 							var store = F3HEngine.localStorage(F3HEngine.k.storeID);
-							store['userID'] = $('#input-userID').val();
+							store['userID'] = $('#uid').val();
 							window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
-							F3HEngine.app.setData( { userID : F3HEngine.inits.uid() } );
+							F3HEngine.app.setData( { userID : F3HEngine.inits.uid(), password : $('#pwd').val() } );
 							F3HEngine.api.request();
 						});
 						$(document).on('click', '[data-f3h-screen]', function() { F3HEngine.app.setData($(this).data()); F3HEngine.api.request(); });
