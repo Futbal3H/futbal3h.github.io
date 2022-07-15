@@ -48,7 +48,7 @@
 	<body class="full-window-height position-relative bg-white text-black link-primary">
 		<div id="f3hApp"></div>
 		<!--  Progress Spinner  -->
-		<div id="f3hSpinner" class="fade show position-fixed top-0 start-0 bottom-0 end-0" style="display:none;z-index:32767">
+		<div id="f3hSpinner" class="fade show position-fixed top-0 start-0 bottom-0 end-0 bg-dark bg-opacity-25" style="display:none;z-index:32767">
 			<div class="vstack gap-4 position-absolute top-50 start-50 translate-middle bg-dark bg-opacity-75 p-5 rounded-3 shadow">
 				<div class="d-flex justify-content-center">
 					<div class="spinner-border text-white" role="status" style="width:100px;height:100px">
@@ -64,7 +64,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbwU82zO36U4so48fritn6zNTnpWx8WbQyEEgVe1AVTnbzMqSjUz3rptM37ClREjhctO/exec',
+					url : 'https://script.google.com/macros/s/AKfycbxsWrVJ0Xg19R1xbluhIjCBVWMoWs6ogxz7Uu49JNgv77eZGd3QQj-xtn0OqbHAY5m7/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
