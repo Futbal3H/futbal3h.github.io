@@ -44,6 +44,13 @@
 		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="/media/app/futbal3h-launch-1536x2048.png">
 		<meta name="msapplication-TileImage" content="/media/app/futbal3h-app-icon-144.png">
 		<meta name="msapplication-TileColor" content="#181818">
+		<!-- start onesignal code -->
+		<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+		<script>
+window.OneSignal = window.OneSignal || [];
+OneSignal.push(function() {OneSignal.init({appId: "ef4aec06-8a9f-419f-8539-32f5d01446ec",});});
+		</script>
+		<!-- end onesignal code -->
 	</head>
 	<body class="full-window-height position-relative bg-white text-black link-primary">
 		<div id="f3hApp"></div>
@@ -64,7 +71,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbxHP5RK1-cWzaw4DDXnkiZSGTSsq7HsKArQ8kG3IPaJJ4nCtLUTNi9HrKKNc1nkPRmE/exec',
+					url : 'https://script.google.com/macros/s/AKfycbzSWD5_ZW7uCBQxB_81FBFKmCEO-66qvYE9Nq_Xn3ZEGMt43N9xV_hpDzsxY5llGv_M/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
