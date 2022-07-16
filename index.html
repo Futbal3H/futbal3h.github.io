@@ -65,7 +65,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbzFGg9XiACnhCGL8wN8msJtY1tUsJzBJFbWvw_10aNr3EC8bKsSm55CYVPWDHH1Zlab/exec',
+					url : 'https://script.google.com/macros/s/AKfycbwUdkm3DEYArD2EzRYIhdTRfhjT9NPfe6A7teTwm3x2Y1_O_tozFnb9rcyAXIe9Rvbu/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
@@ -101,6 +101,11 @@ console.log(JSON.stringify(payload));
 						var store = F3HEngine.localStorage(F3HEngine.k.storeID);
 						return (idKey in store) ? store[idKey] : '';
 					},
+					signInStamp : () => {
+						const idKey = 'signInStamp';
+						var store = F3HEngine.localStorage(F3HEngine.k.storeID);
+						return (idKey in store) ? store[idKey] : {};
+					},
 					loader : () => {
 						const inputs = new URLSearchParams(window.location.search);
 						const inputKeys = [...inputs.keys()];
@@ -111,6 +116,13 @@ console.log(JSON.stringify(payload));
 						if (initIDs == 'ls-reset') { window.localStorage.clear(); return; }
 					},
 					handlers : () => {
+						$(document).on('change', '[data-f3h-pass-to]', function() {
+							const t = $(this).data('f3hPassTo');
+							const o = $(t).data('f3hData') || {};
+							o[$(this).data('f3hPassAs')] = $(this).val();
+						});
+						$(document).on('click', '[data-f3h-action]', function() { F3HEngine.app.setData($(this).data()); F3HEngine.api.request(); });
+
 						$(document).on('click', '#f3hLogIn', function() {
 							var store = F3HEngine.localStorage(F3HEngine.k.storeID);
 							store['userID'] = $('#uid').val();
@@ -118,37 +130,10 @@ console.log(JSON.stringify(payload));
 							F3HEngine.app.setData( { userID : F3HEngine.inits.uid(), password : $('#pwd').val() } );
 							F3HEngine.api.request();
 						});
-						$(document).on('click', '[data-f3h-screen]', function() { F3HEngine.app.setData($(this).data()); F3HEngine.api.request(); });
-
-/*						$('input[data-lfo-chars]').on('keypress', F3HEngine.utilities.input.filter);
-						$('.fvContractorPhone').click(function() { F3HEngine.ui.showContactDialog('phone'); });
-						$('#fvCallURL').click(function() { F3HEngine.api.hit('call'); return true; });
-						$('#fvSmsURL').click(function() { F3HEngine.api.hit('sms'); return true; });
-						$('#fvWhatsUpURL').click(function() { F3HEngine.api.hit('whatsup'); return true; });
-						$('.fvContractorEmail').click(function() { F3HEngine.ui.showContactDialog('email'); });
-						$('#fvEmailURL').click(function() { F3HEngine.api.hit('emailapp'); return true; });
-						$('#fvGmailURL').click(function() { F3HEngine.api.hit('gmail'); return true; });
-						$('.fvMessengerURL').click(function() { F3HEngine.api.hit('messenger'); return true; });
-						$('.fvBonusInfoButton').click(function() { $('#fvBonusInfoDialog').modal({}); $('#fvBonusInfoDialog').modal('show'); });
-						$('.fvContactFormButton').click(function() {
-							const form = $(this).closest('form')[0];
-							if (!form.checkValidity()) {
-								event.preventDefault();
-								event.stopPropagation();
-							} else {
-								const inp = $('.fvContactInfo:visible:first', form);
-								const data = inp.val();
-								const type = $(form).attr('data-fv-contact-type');
-								const dialogs = $(this).closest('.fvDialog');
-								const dialog = (dialogs.length > 0) ? `#${$(dialogs[0]).attr('id')}` : '';
-							};
-							form.classList.add('was-validated');
-						}); */
 					}
 				},
 				init : () => {
-//					F3HEngine.uid = F3HEngine.inits.uid();
-					F3HEngine.app.setData( { userID : F3HEngine.inits.uid() } );
+					F3HEngine.app.setData( { signInStamp : F3HEngine.inits.signInStamp(), f3hLayout : 'main', f3hScreen : 'home' } );
 					F3HEngine.loader = F3HEngine.inits.loader();
 				},
 				ui : {
