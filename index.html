@@ -65,7 +65,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbxpXAC55xYbR3R3GyQpBYktrrM2-tIU1-R3yDk3O2tAI1tnGzMJ750vQqTbED9ZGq4V/exec',
+					url : 'https://script.google.com/macros/s/AKfycbxWbiQF0hTGDsFYwSi7DyC3dzsEpYwQub6DPhGYGvcPtxqvtMLU_NT0mFzob5_xgdlk/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
@@ -132,7 +132,13 @@ console.log(JSON.stringify(payload));
 							o[$(this).data('f3hPassAs')] = $(this).val();
 							$(t).data('f3hData', o);
 						});
-						$(document).on('click', '[data-f3h-action]', function() { F3HEngine.app.setData($(this).data()); F3HEngine.api.request(); });
+						$(document).on('click', '[data-f3h-action]', function() {
+							const id = $(this).data('f3hCollector');
+							const o = $(this).data('f3hData') || {};
+							$(`[data-f3h-collect-in="${id}"]`).each( o[$(this).data('f3hCollectAs')] = $(this).val() );
+							$(this).data('f3hData', o);
+							F3HEngine.app.setData($(this).data()); F3HEngine.api.request();
+						});
 					}
 				},
 				init : () => {
