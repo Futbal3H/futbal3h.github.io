@@ -65,14 +65,19 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbwy2l1WRdNNQjeVGphX5u8Mc49PONgPoVlAu9D6oMvnHDXsdxaedO0OEw5XWQHPHTkR/exec',
+					url : 'https://script.google.com/macros/s/AKfycbygGkf5KQGyxXrCNrOZDxN3aoKirXYrwd8OWqgK0lVkaUXAvBCUAmfkxOaX8GDEzZtD/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
 console.log(JSON.stringify(payload));
 						fetch(F3HEngine.api.url, { method: 'post', mode: 'cors', body: JSON.stringify(payload) })
 							.then( function (res) { try { return res.json() } catch(err) { console.log('Error: ' + err.message) } })
-							.then( function (json) { $('#f3hApp').data(json.data); const target = json.target || 'f3hApp'; $(`#${target}`).html(json.html); $('#f3hSpinner').hide(); });
+							.then( function (json) {
+								$('#f3hApp').data(json.data);
+								if (session) { let store = F3HEngine.localStorage(F3HEngine.k.storeID); Object.keys(session).forEach((key) => { store[key] = session[key]; }); window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store)); };
+								if (json.target.length > 0) $(target).html(json.html);
+								$('#f3hSpinner').hide();
+							});
 					}
 				},
 				app : {
@@ -123,14 +128,6 @@ console.log(JSON.stringify(payload));
 							$(t).data('f3hData', o);
 						});
 						$(document).on('click', '[data-f3h-action]', function() { F3HEngine.app.setData($(this).data()); F3HEngine.api.request(); });
-
-						$(document).on('click', '#f3hLogIn', function() {
-							var store = F3HEngine.localStorage(F3HEngine.k.storeID);
-							store['userID'] = $('#uid').val();
-							window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
-							F3HEngine.app.setData( { userID : F3HEngine.inits.uid(), password : $('#pwd').val() } );
-							F3HEngine.api.request();
-						});
 					}
 				},
 				init : () => {
