@@ -75,7 +75,7 @@ console.log(JSON.stringify(payload));
 							.then( function (json) {
 								$('#f3hApp').data(json.data);
 								if (json.session) { let store = F3HEngine.localStorage(F3HEngine.k.storeID); Object.keys(json.session).forEach((key) => { store[key] = json.session[key]; }); window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store)); };
-								if (json.target.length > 0) $(target).html(json.html);
+								if (json.target.length > 0) $(json.target).html(json.html);
 								$('#f3hSpinner').hide();
 							});
 					}
