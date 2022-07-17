@@ -65,7 +65,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbxSWafHwtVxdWPEDu3Xd_49xDPAa9yaMU-16eOnFoTkoRmbUyRkwW4i2JVRP8zVUCVV/exec',
+					url : 'https://script.google.com/macros/s/AKfycbz4YDCS24hHkN6BtMw78YlowTI5BAutlWjz5TSuR9tsfizAguOX7gQcm4RNvUbEAV3S/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
@@ -101,8 +101,8 @@ console.log(JSON.stringify(payload));
 						var store = F3HEngine.localStorage(F3HEngine.k.storeID);
 						return (idKey in store) ? store[idKey] : '';
 					},
-					signInStamp : () => {
-						const idKey = 'signInStamp';
+					sessionStamp : () => {
+						const idKey = 'sessionStamp';
 						var store = F3HEngine.localStorage(F3HEngine.k.storeID);
 						return (idKey in store) ? store[idKey] : {};
 					},
@@ -134,7 +134,7 @@ console.log(JSON.stringify(payload));
 					}
 				},
 				init : () => {
-					F3HEngine.app.setData( { signInStamp : F3HEngine.inits.signInStamp(), f3hLayout : 'main', f3hScreen : 'home' } );
+					F3HEngine.app.setData( { sessionStamp : F3HEngine.inits.sessionStamp(), f3hLayout : 'main', f3hScreen : 'home' } );
 					F3HEngine.loader = F3HEngine.inits.loader();
 				},
 				ui : {
