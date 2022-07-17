@@ -66,9 +66,10 @@
 				},
 				api : {
 					url : 'https://script.google.com/macros/s/AKfycbxWbiQF0hTGDsFYwSi7DyC3dzsEpYwQub6DPhGYGvcPtxqvtMLU_NT0mFzob5_xgdlk/exec',
-					request : () => {
+					request : (payload) => {
 						$('#f3hSpinner').show();
-						const payload = $('#f3hApp').data();
+						// const payload = $('#f3hApp').data();
+						payload.sessionStamp = F3HEngine.inits.sessionStamp();
 console.log(JSON.stringify(payload));
 						fetch(F3HEngine.api.url, { method: 'post', mode: 'cors', body: JSON.stringify(payload) })
 							.then( function (res) { try { return res.json() } catch(err) { console.log('Error: ' + err.message) } })
@@ -137,12 +138,12 @@ console.log(JSON.stringify(payload));
 							const o = $(this).data('f3hData') || {};
 							$(`[data-f3h-collect-in="${id}"]`).each(function() { o[$(this).data('f3hCollectAs')] = $(this).val(); });
 							$(this).data('f3hData', o);
-							F3HEngine.app.setData($(this).data()); F3HEngine.api.request();
+							F3HEngine.app.setData($(this).data()); F3HEngine.api.request($(this).data());
 						});
 					}
 				},
 				init : () => {
-					F3HEngine.app.setData( { sessionStamp : F3HEngine.inits.sessionStamp(), f3hLayout : 'main', f3hScreen : 'home' } );
+					// F3HEngine.app.setData( { sessionStamp : F3HEngine.inits.sessionStamp(), f3hLayout : 'main', f3hScreen : 'home' } );
 					F3HEngine.loader = F3HEngine.inits.loader();
 				},
 				utilities : {
@@ -159,7 +160,7 @@ console.log(JSON.stringify(payload));
 			F3HEngine.init();
 			$(function() {
 				F3HEngine.inits.handlers();
-				F3HEngine.api.request();
+				F3HEngine.api.request({ f3hLayout : 'main', f3hScreen : 'home' });
 			});
 		</script>
 	</body>
