@@ -65,10 +65,9 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbxWbiQF0hTGDsFYwSi7DyC3dzsEpYwQub6DPhGYGvcPtxqvtMLU_NT0mFzob5_xgdlk/exec',
+					url : 'https://script.google.com/macros/s/AKfycbyLNfluNfQB1ZnLBcbgVdZHnQQYzF6qC8aeUM7OvnNiNC7tkINfi37SgyQV_Jf-E-GX/exec',
 					request : (payload) => {
 						$('#f3hSpinner').show();
-						// const payload = $('#f3hApp').data();
 						payload.sessionStamp = F3HEngine.inits.sessionStamp();
 console.log(JSON.stringify(payload));
 						fetch(F3HEngine.api.url, { method: 'post', mode: 'cors', body: JSON.stringify(payload) })
@@ -81,7 +80,7 @@ console.log(JSON.stringify(payload));
 									window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
 									F3HEngine.app.setData( { sessionStamp : F3HEngine.inits.sessionStamp() } );
 								};
-								if (json.target.length > 0) $(document).find(json.target).html(json.html);
+								Object.keys(json.outputs).forEach((key) => { $(document).find(key).html(outputs[key]); });
 								$('#f3hSpinner').hide();
 							});
 					}
@@ -143,7 +142,6 @@ console.log(JSON.stringify(payload));
 					}
 				},
 				init : () => {
-					// F3HEngine.app.setData( { sessionStamp : F3HEngine.inits.sessionStamp(), f3hLayout : 'main', f3hScreen : 'home' } );
 					F3HEngine.loader = F3HEngine.inits.loader();
 				},
 				utilities : {
