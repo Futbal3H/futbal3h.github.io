@@ -80,7 +80,7 @@ console.log(JSON.stringify(payload));
 									window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store));
 									F3HEngine.app.setData( { sessionStamp : F3HEngine.inits.sessionStamp() } );
 								};
-								if (json.target.length > 0) $(json.target).html(json.html);
+								if (json.target.length > 0) $(document).html(json.target, json.html);
 								$('#f3hSpinner').hide();
 							});
 					}
