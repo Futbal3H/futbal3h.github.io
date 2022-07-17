@@ -151,7 +151,7 @@ console.log(JSON.stringify(payload));
 			};
 			F3HEngine.init();
 			$(function() {
-				$('[data-bs-toggle="tooltip"]').tooltip();  /**  Bootstrap Tooltips  **/
+				$(document).find('[data-bs-toggle="tooltip"]').tooltip();  /**  Bootstrap Tooltips  **/
 
 				F3HEngine.inits.handlers();
 				F3HEngine.api.request({ f3hLayout : 'main', f3hScreen : 'home' });
