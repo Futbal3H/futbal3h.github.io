@@ -65,7 +65,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbwUdkm3DEYArD2EzRYIhdTRfhjT9NPfe6A7teTwm3x2Y1_O_tozFnb9rcyAXIe9Rvbu/exec',
+					url : 'https://script.google.com/macros/s/AKfycbwdZAeSnogBn3FQKzLIZaBdd_asF2umpTQQCFrr9M7wai26HmHW2vK94lhtuCre5ij-/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
@@ -117,9 +117,13 @@ console.log(JSON.stringify(payload));
 					},
 					handlers : () => {
 						$(document).on('change', '[data-f3h-pass-to]', function() {
+console.log('passing data');
 							const t = $(this).data('f3hPassTo');
+console.log(`target: ${t}`);
 							const o = $(t).data('f3hData') || {};
+console.log(`data: ${JSON.stringify(o)}`);
 							o[$(this).data('f3hPassAs')] = $(this).val();
+							$(t).data('f3hData', o);
 						});
 						$(document).on('click', '[data-f3h-action]', function() { F3HEngine.app.setData($(this).data()); F3HEngine.api.request(); });
 
