@@ -65,7 +65,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbzHdyAKkZtpQjHFVElbL1ym17CgXEfHA5sfyVm1yPndNahLEu9gKPfaGTb1zseJQQw0/exec',
+					url : 'https://script.google.com/macros/s/AKfycbziqruBk_l1T2TF5T4pAVovuDMX85YeGCEbZ6KofzqGC2W9oMZsBA1cwXLcmrUrQgOn/exec',
 					request : (payload) => {
 						$('#f3hSpinner').show();
 						payload.sessionStamp = F3HEngine.inits.sessionStamp();
@@ -103,14 +103,8 @@ console.log(JSON.stringify(payload));
 					}
 					return items;
 				},
-				uid : '',
 				loader : {},
 				inits : {
-					uid : () => {
-						const idKey = 'userID';
-						var store = F3HEngine.localStorage(F3HEngine.k.storeID);
-						return (idKey in store) ? store[idKey] : '';
-					},
 					sessionStamp : () => {
 						const idKey = 'sessionStamp';
 						var store = F3HEngine.localStorage(F3HEngine.k.storeID);
@@ -123,7 +117,7 @@ console.log(JSON.stringify(payload));
 						const initIDs = (inputKeys.length > 0 && inputVals[0] == '') ? inputKeys[0] : '';
 						const initCmd = (inputKeys.length > 1 && inputVals[1] == '') ? inputKeys[1] : '';
 
-						if (initIDs == 'ls-reset') { window.localStorage.clear(); return; }
+						if (initIDs == 'signOut') { window.localStorage.clear(); return; }
 					},
 					handlers : () => {
 						$(document).on('change', '[data-f3h-pass-to]', function() {
