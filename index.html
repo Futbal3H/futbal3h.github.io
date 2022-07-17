@@ -65,7 +65,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbygGkf5KQGyxXrCNrOZDxN3aoKirXYrwd8OWqgK0lVkaUXAvBCUAmfkxOaX8GDEzZtD/exec',
+					url : 'https://script.google.com/macros/s/AKfycbwlzbDL3EQ1XI5-oUAU1L4fdG7uGhiJiCBZMV0jYaRVzh99DG7Wkc6RrZGrX2Y2zYxi/exec',
 					request : () => {
 						$('#f3hSpinner').show();
 						const payload = $('#f3hApp').data();
@@ -74,7 +74,7 @@ console.log(JSON.stringify(payload));
 							.then( function (res) { try { return res.json() } catch(err) { console.log('Error: ' + err.message) } })
 							.then( function (json) {
 								$('#f3hApp').data(json.data);
-								if (json.session) { let store = F3HEngine.localStorage(F3HEngine.k.storeID); Object.keys(json.session).forEach((key) => { store[key] = json.session[key]; }); window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store)); };
+								if (json.session) { console.log('saving session data'); let store = F3HEngine.localStorage(F3HEngine.k.storeID); Object.keys(json.session).forEach((key) => { store[key] = json.session[key]; }); window.localStorage.setItem(F3HEngine.k.storeID, JSON.stringify(store)); };
 								if (json.target.length > 0) $(json.target).html(json.html);
 								$('#f3hSpinner').hide();
 							});
