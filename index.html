@@ -135,7 +135,7 @@ console.log(JSON.stringify(payload));
 						$(document).on('click', '[data-f3h-action]', function() {
 							const id = $(this).data('f3hCollector');
 							const o = $(this).data('f3hData') || {};
-							$(`[data-f3h-collect-in="${id}"]`).each( o[$(this).data('f3hCollectAs')] = $(this).val() );
+							$(`[data-f3h-collect-in="${id}"]`).each(function() { o[$(this).data('f3hCollectAs')] = $(this).val(); });
 							$(this).data('f3hData', o);
 							F3HEngine.app.setData($(this).data()); F3HEngine.api.request();
 						});
