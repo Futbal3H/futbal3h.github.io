@@ -67,7 +67,7 @@
 					storeID : 'io.github.futbal3h.userData'
 				},
 				api : {
-					url : 'https://script.google.com/macros/s/AKfycbxk5M6jiZgoIzTkuHOjfSd6xr_rkpWUNlIFmSZieNebXHLUE1RMBQNh91s2kvo_pZ2I/exec',
+					url : 'https://script.google.com/macros/s/AKfycbxL-MrRLjUaOI6uvM1v6TDWZZPCNrebX0LHDeNMNlJEImlt-pp7Fc3gpiR5JzcUAN53/exec',
 					request : (payload) => {
 						$('#f3hSpinner').show();
 						payload.sessionStamp = F3HEngine.inits.sessionStamp();
@@ -144,7 +144,6 @@ console.log(JSON.stringify(payload));
 								});
 								$(this).data('f3hData', o);
 							}
-							// F3HEngine.app.setData($(this).data());
 							F3HEngine.api.request($(this).data());
 						});
 					}
