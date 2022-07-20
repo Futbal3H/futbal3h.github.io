@@ -136,7 +136,7 @@ console.log(JSON.stringify(payload));
 									let val = '';
 									switch($(this).attr('type')) {
 										case 'checkbox':
-											val = (this).is(':checked'); break;
+											val = $(this).is(':checked'); break;
 										default:
 											val = $(this).val();
 									}
