@@ -165,7 +165,7 @@ console.log(JSON.stringify(payload));
 					}
 				},
 				ui : {
-					closeForm(fid) { $(fid).find('form')[0].reset(); $(fid).modal({}); $(fid).modal('hide'); }
+					closeForm(fid) { $(fid).find('form').trigger('reset'); $(fid).modal({}); $(fid).modal('hide'); }
 				}
 			};
 			F3HEngine.init();
