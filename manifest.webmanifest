@@ -1,0 +1,39 @@
+{
+	"short_name": "Futbal 3H",
+	"name": "Futbal 3H",
+	"description": "Futbal 3H is a bespoke app for futbal players for Sunday evening's matches on 3 Hôrky.",
+	"categories": ["sport"],
+	"lang": "en-GB",
+	"icons": [
+		{
+			"src": "/media/app/futbal3h-app-icon-144.png",
+			"type": "image/png",
+			"sizes": "144x144",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/media/app/futbal3h-app-icon-180.png",
+			"type": "image/png",
+			"sizes": "180x180",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/media/app/futbal3h-app-icon-192.png",
+			"type": "image/png",
+			"sizes": "192x192",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/media/app/futbal3h-app-icon-512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "any maskable"
+		}
+	],
+	"scope": "https://futbal3h.github.io/",
+	"start_url": "/?source=pwa",
+	"background_color": "#ffffff",
+	"theme_color": "#198754",
+	"display": "standalone",
+	"orientation": "any"
+}
